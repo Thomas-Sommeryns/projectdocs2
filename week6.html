@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS</title>
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/flexboxes.css">
+    <link rel="stylesheet" href="assets/nav.css">
+    <link rel="stylesheet" href="assets/typography.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            Lost in tra(in)slation - Thomas Sommeryns 1GDM1
+        </div>
+        <div>
+            <ul class="vertical-buttons">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+            <ul class="vertical-buttons2">
+                <li><a href="week1.html">Week 1</a></li>
+                <li><a href="week2.html">Week 2</a></li>
+                <li><a href="week3.html">Week 3</a></li>
+                <li><a href="week4.html">Week 4</a></li>
+                <li><a href="week5.html">Week 5</a></li>
+                <li><a href="week6.html">Week 6</a></li>
+                <li><a href="week7.html">Week 7</a></li>
+                <li><a href="week8.html">Week 8</a></li>
+                <li><a href="week9.html">Week 9</a></li>
+                <li><a href="week10.html">Week 10</a></li>
+                <li><a href="week11.html">Week 11</a></li>
+                <li><a href="week12.html">Week 12</a></li>
+                 </ul>
+        </div>
+        <page>
+            <h3>Week 6</h3>
+            <h2>Mijn ervaring</h2>
+            <p>
+                Hier begonnen we met mobiele versies van onze schermen.
+                </p>
+                Het was de bedoeling dat we de 3 eerste schermen omzette tot een prototype van een mobiele app.
+                </p>
+                Dit vond ik best moeilijk omdat er veel minder ruimte is op een mobiel scherm, dus moest ik goed nadenken over wat ik wel en niet zou tonen op het scherm. Ik vond dat ik bij mijn vorige ontwerpen iets te veel verschillende kleuren had gebruikt, dus heb ik bij de mobiele versie besloten om een zwart en blauw thema te gebruiken.
+                </p>
+                Hieronder zie je de eerste 3 schermen die ik heb omgezet naar het mobiele prototype.
+            </p>
+            <div class="image-row">
+            <img src="Images/Station scherm mobiel.png" alt="Week 6 afbeelding" width="600" style="display: block; margin: 50px auto;" class="clickable-img">
+            <img src="Images/Perronscherm mobiel.png" alt="Week 6 afbeelding" width="600" style="display: block; margin: 50px auto;" class="clickable-img">
+            <img src="Images/Wagonscherm mobiel.png" alt="Week 6 afbeelding" width="600" style="display: block; margin: 50px auto;" class="clickable-img">
+                </div>
+            </div>
+            <div id="imgModal" class="modal" aria-hidden="true">
+		<div class="modal-content" role="dialog" aria-modal="true">
+			<button class="modal-close" aria-label="Sluit (Esc)">&times;</button>
+			<img class="modal-img" src="" alt="">
+		</div>
+	</div>
+
+	<!-- Script: open/close modal -->
+	<script>
+		// ...small, self-contained script...
+		(function(){
+			const modal = document.getElementById('imgModal');
+			const modalImg = modal.querySelector('.modal-img');
+			const closeBtn = modal.querySelector('.modal-close');
+			const imgs = document.querySelectorAll('.clickable-img');
+
+			function open(src, alt){
+				modalImg.src = src;
+				modalImg.alt = alt || '';
+				modal.classList.add('open');
+				modal.setAttribute('aria-hidden','false');
+				document.body.style.overflow = 'hidden';
+				closeBtn.focus();
+			}
+			function close(){
+				modal.classList.remove('open');
+				modal.setAttribute('aria-hidden','true');
+				modalImg.src = '';
+				document.body.style.overflow = '';
+			}
+
+			imgs.forEach(img => {
+				img.style.cursor = 'zoom-in';
+				img.setAttribute('tabindex','0');
+				img.addEventListener('click', () => open(img.src, img.alt));
+				img.addEventListener('keydown', (e) => {
+					if(e.key === 'Enter' || e.key === ' ') open(img.src, img.alt);
+				});
+			});
+
+			closeBtn.addEventListener('click', close);
+			modal.addEventListener('click', e => {
+				if(e.target === modal) close();
+			});
+			document.addEventListener('keydown', e => {
+				if(e.key === 'Escape' && modal.classList.contains('open')) close();
+			});
+		})();
+	</script>
+        </page>
+    </div>
+     <footer class="site-footer">
+  <p>
+    Laatst gepubliceerde code:
+    <a
+      href="https://github.com/Thomas-Sommeryns/Projectdocs"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Bekijk op GitHub
+    </a>
+  </p>
+</footer>
+</body>
+</html>

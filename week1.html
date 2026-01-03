@@ -1,0 +1,119 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS</title>
+
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/flexboxes.css">
+    <link rel="stylesheet" href="assets/nav.css">
+    <link rel="stylesheet" href="assets/typography.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            Lost in tra(in)slation - Thomas Sommeryns 1GDM1
+        </div>
+        <div>
+            <ul class="vertical-buttons">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+            <ul class="vertical-buttons2">
+                <li><a href="week1.html">Week 1</a></li>
+                <li><a href="week2.html">Week 2</a></li>
+                <li><a href="week3.html">Week 3</a></li>
+                <li><a href="week4.html">Week 4</a></li>
+                <li><a href="week5.html">Week 5</a></li>
+                <li><a href="week6.html">Week 6</a></li>
+                <li><a href="week7.html">Week 7</a></li>
+                <li><a href="week8.html">Week 8</a></li>
+                <li><a href="week9.html">Week 9</a></li>
+                <li><a href="week10.html">Week 10</a></li>
+                <li><a href="week11.html">Week 11</a></li>
+                <li><a href="week12.html">Week 12</a></li>
+            </ul>
+        </div>
+        <page>
+            <h3>Week 1</h3>
+            <h2>Mijn ervaring</h2>
+            <p>
+                Dit was de eerste week in prototyping tools. In de eerste les hebben we de eerste uitleg gekregen over wat we in dit vak gaan doen.
+            </p>    
+                We kregen de opdracht om verschillende versies te maken van 3 treinschermen.
+                We moesten een wagonscherm schetsen, waarop je kan zien waar de opstapplaatsen voor gehandicapten zijn, welke wagons eerste of tweede klasse zijn, de bestemming en treinnummer.
+            </p>
+            <img src="Images/Wagonscherm.jpeg" alt="Week 1 afbeelding" width="600" style="display: block; margin: 50px auto;" class="clickable-img">
+            Het tweede scherm was een overzichtsscherm van het station, waarop je de verschillende perrons en hun bestemmingen kan zien.
+        </p> 
+            We moesten ook een manier vinden om te laten zien dat er bijvoorbeeld problemen zijn met de trein zoals een trein met vertraging. Ik vond het nogal moeilijk om 3 verschillende versies te maken, omdat alles nog steeds op een duidelijke plaats moet staan.
+            <img src="Images/Overzichtscherm.jpeg" alt="Week 1 afbeelding" width="600" style="display: block; margin: 50px auto;" class="clickable-img">
+            Het derde en laatste scherm was een perronscherm, waarop je de eerste 10 treinen kan zien die op dat perron aankomt, samen met hun vertrektijd en eventuele vertragingen.
+            <img src="Images/Perronscherm.jpeg" alt="Week 1 afbeelding" width="600" style="display: block; margin: 50px auto;" class="clickable-img">
+             </div>
+            </div>
+            <div id="imgModal" class="modal" aria-hidden="true">
+		<div class="modal-content" role="dialog" aria-modal="true">
+			<button class="modal-close" aria-label="Sluit (Esc)">&times;</button>
+			<img class="modal-img" src="" alt="">
+		</div>
+	</div>
+
+<!-- Script: open/close modal -->
+	<script>
+		// ...small, self-contained script...
+		(function(){
+			const modal = document.getElementById('imgModal');
+			const modalImg = modal.querySelector('.modal-img');
+			const closeBtn = modal.querySelector('.modal-close');
+			const imgs = document.querySelectorAll('.clickable-img');
+
+			function open(src, alt){
+				modalImg.src = src;
+				modalImg.alt = alt || '';
+				modal.classList.add('open');
+				modal.setAttribute('aria-hidden','false');
+				document.body.style.overflow = 'hidden';
+				closeBtn.focus();
+			}
+			function close(){
+				modal.classList.remove('open');
+				modal.setAttribute('aria-hidden','true');
+				modalImg.src = '';
+				document.body.style.overflow = '';
+			}
+
+			imgs.forEach(img => {
+				img.style.cursor = 'zoom-in';
+				img.setAttribute('tabindex','0');
+				img.addEventListener('click', () => open(img.src, img.alt));
+				img.addEventListener('keydown', (e) => {
+					if(e.key === 'Enter' || e.key === ' ') open(img.src, img.alt);
+				});
+			});
+
+			closeBtn.addEventListener('click', close);
+			modal.addEventListener('click', e => {
+				if(e.target === modal) close();
+			});
+			document.addEventListener('keydown', e => {
+				if(e.key === 'Escape' && modal.classList.contains('open')) close();
+			});
+		})();
+	</script>
+        </page>
+    </div>
+    <footer class="site-footer">
+  <p>
+    Laatst gepubliceerde code:
+    <a
+      href="https://github.com/Thomas-Sommeryns/Projectdocs"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Bekijk op GitHub
+    </a>
+  </p>
+</footer>
+</body>
+</html>

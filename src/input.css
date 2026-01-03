@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.nav-btn {
+		@apply inline-block text-3xl font-patua text-brand-blue transition-colors duration-300 ease-in-out rounded;
+	}
+	.nav-btn:hover {
+		@apply bg-brand-blue text-white px-3 py-1;
+	}
+	.h1-bungee {
+		@apply font-bungee text-5xl text-center;
+	}
+	.img-equal {
+		@apply block mx-auto my-5 w-64 h-auto;
+	}
+	.btn-grid-frame {
+		@apply bg-[rgba(69,100,255,0.08)] p-4 rounded;
+	}
+	
+}

@@ -1,0 +1,32 @@
+.two-columns {
+    display: flex;
+    gap: 20px; /* spacing between columns */
+}
+
+.column {
+    flex: 1; /* each column takes equal space */
+}
+.image-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: start;
+  margin-top: 1.25rem;
+}
+
+.image-row img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(10,20,40,0.06);
+}
+
+.image-row2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: start;
+  margin-top: 1.25rem;
+  justify-content: center;
+}
